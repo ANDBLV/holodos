@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; padding: 0; min-height: 100%; }
+
+.hos-root {
+  --frost: #EEF5F8;
+  --frost-deep: #DCEBF1;
+  --ink: #17313D;
+  --ink-soft: #4E6B77;
+  --tomato: #F2603D;
+  --tomato-deep: #D94D2C;
+  --basil: #3E8E5A;
+  --white: #FDFEFE;
+  min-height: 100vh;
+  background: linear-gradient(178deg, var(--frost) 0%, var(--frost-deep) 100%);
+  color: var(--ink);
+  font-family: 'Golos Text', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.hos-root button { font-family: inherit; cursor: pointer; }
+.hos-root button:focus-visible, .hos-root input:focus-visible {
+  outline: 3px solid var(--tomato); outline-offset: 2px;
+}
+
+.hos-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px; max-width: 720px; width: 100%; margin: 0 auto;
+}
+.hos-logo {
+  font-family: 'Unbounded', sans-serif; font-weight: 700;
+  font-size: 24px; letter-spacing: -0.5px; cursor: pointer; user-select: none;
+  display: flex; align-items: baseline; gap: 2px;
+}
+.hos-logo-os { color: var(--tomato); }
+.hos-deg {
+  font-family: 'Golos Text', sans-serif; font-size: 12px; font-weight: 600;
+  color: var(--ink-soft); background: var(--white); border-radius: 999px;
+  padding: 2px 8px; margin-left: 8px; border: 1px solid var(--frost-deep);
+}
+
+.hos-main {
+  max-width: 720px; width: 100%; margin: 0 auto; padding: 8px 24px 48px; flex: 1;
+}
+.hos-center { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; }
+
+.hos-hero {
+  font-family: 'Unbounded', sans-serif; font-weight: 700;
+  font-size: clamp(30px, 6vw, 52px); line-height: 1.12; margin: 40px 0 16px;
+}
+.hos-sub { font-size: 17px; color: var(--ink-soft); max-width: 46ch; line-height: 1.55; margin: 0 0 28px; }
+.hos-sub-s { font-size: 15px; color: var(--ink-soft); margin: 4px 0 16px; line-height: 1.5; }
+.hos-hint { font-size: 13px; color: var(--ink-soft); margin-top: 10px; }
+
+.hos-cta {
+  display: inline-block; border: none; border-radius: 16px;
+  background: var(--tomato); color: #fff;
+  font-size: 17px; font-weight: 600; padding: 16px 26px;
+  box-shadow: 0 6px 0 var(--tomato-deep);
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+.hos-cta:active { transform: translateY(4px); box-shadow: 0 2px 0 var(--tomato-deep); }
+.hos-cta:disabled { opacity: .5; cursor: not-allowed; }
+
+.hos-ghost-btn {
+  background: var(--white); border: 1.5px solid var(--frost-deep);
+  color: var(--ink); border-radius: 12px; padding: 9px 14px;
+  font-size: 14px; font-weight: 500;
+}
+.hos-ghost-btn:hover { border-color: var(--ink-soft); }
+
+.hos-how { display: flex; align-items: center; gap: 12px; margin-top: 48px; flex-wrap: wrap; }
+.hos-how-item {
+  display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500;
+  background: var(--white); padding: 10px 14px; border-radius: 12px;
+  border: 1px solid var(--frost-deep);
+}
+.hos-how-item span {
+  font-family: 'Unbounded', sans-serif; font-size: 12px; color: var(--tomato);
+}
+.hos-how-arrow { color: var(--ink-soft); }
+
+.hos-thumb {
+  width: 180px; height: 180px; object-fit: cover; border-radius: 20px;
+  border: 4px solid var(--white); box-shadow: 0 8px 24px rgba(23,49,61,.15);
+}
+.hos-snow { font-size: 34px; animation: hos-spin 1.6s linear infinite; color: var(--ink-soft); }
+@keyframes hos-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .hos-snow { animation: none; } }
+.hos-loading { font-size: 16px; font-weight: 500; color: var(--ink-soft); }
+
+.hos-h2 {
+  font-family: 'Unbounded', sans-serif; font-weight: 500;
+  font-size: 20px; margin: 26px 0 8px;
+}
+
+/* Дверца холодильника */
+.hos-fridge {
+  position: relative; background: var(--white);
+  border: 1.5px solid var(--frost-deep); border-radius: 22px;
+  padding: 22px 22px 22px 34px;
+  box-shadow: inset 0 2px 8px rgba(23,49,61,.05);
+}
+.hos-handle {
+  position: absolute; left: 12px; top: 24px; bottom: 24px; width: 7px;
+  background: var(--frost-deep); border-radius: 999px;
+}
+.hos-magnets { display: flex; flex-wrap: wrap; gap: 10px; }
+.hos-magnet {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--frost); border: 1.5px solid var(--frost-deep);
+  border-radius: 999px; padding: 8px 12px; font-size: 14px; font-weight: 500;
+  color: var(--ink); box-shadow: 0 2px 0 var(--frost-deep);
+}
+.hos-magnet:hover { border-color: var(--tomato); }
+.hos-magnet:hover .hos-magnet-x { color: var(--tomato); }
+.hos-magnet-emoji { font-size: 16px; }
+.hos-magnet-x { color: var(--ink-soft); font-size: 15px; margin-left: 2px; }
+.hos-add { display: inline-flex; align-items: center; gap: 6px; }
+.hos-add input {
+  border: 1.5px dashed var(--ink-soft); background: transparent;
+  border-radius: 999px; padding: 8px 12px; font-size: 14px; width: 170px;
+  font-family: inherit; color: var(--ink);
+}
+.hos-add button {
+  width: 34px; height: 34px; border-radius: 50%; border: none;
+  background: var(--basil); color: #fff; font-size: 18px; line-height: 1;
+}
+
+.hos-filters { display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; }
+.hos-filter-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.hos-pill {
+  border: 1.5px solid var(--frost-deep); background: var(--white);
+  border-radius: 999px; padding: 8px 14px; font-size: 14px; color: var(--ink-soft);
+}
+.hos-pill.active {
+  background: var(--ink); border-color: var(--ink); color: #fff; font-weight: 500;
+}
+.hos-allergy {
+  border: 1.5px solid var(--frost-deep); border-radius: 12px;
+  padding: 12px 14px; font-size: 14px; font-family: inherit;
+  background: var(--white); color: var(--ink); width: 100%; max-width: 440px;
+}
+
+.hos-error {
+  background: #FDECE6; border: 1.5px solid var(--tomato);
+  color: var(--tomato-deep); border-radius: 12px; padding: 12px 14px;
+  font-size: 14px; margin: 14px 0; max-width: 60ch;
+}
+
+.hos-recipes { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.hos-recipe {
+  background: var(--white); border: 1.5px solid var(--frost-deep); border-radius: 18px;
+  overflow: hidden;
+}
+.hos-recipe.open { border-color: var(--ink); }
+.hos-recipe-head {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  background: none; border: none; padding: 16px 18px; text-align: left;
+}
+.hos-recipe-emoji { font-size: 24px; }
+.hos-recipe-title { font-size: 16px; font-weight: 600; flex: 1; color: var(--ink); }
+.hos-recipe-meta { font-size: 13px; color: var(--ink-soft); white-space: nowrap; }
+.hos-recipe-chevron {
+  font-family: 'Unbounded', sans-serif; color: var(--tomato); font-size: 16px;
+}
+.hos-recipe-body { padding: 0 18px 18px; }
+.hos-uses { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.hos-tag {
+  font-size: 12px; background: var(--frost); border-radius: 999px;
+  padding: 4px 10px; color: var(--ink-soft);
+}
+.hos-tag.miss { background: #FDF3E6; color: #A8631E; }
+.hos-steps { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+.hos-steps li { font-size: 14.5px; line-height: 1.5; }
+.hos-steps li::marker { font-weight: 600; color: var(--tomato); }
+.hos-tip {
+  margin: 14px 0 0; font-size: 13.5px; color: var(--basil);
+  background: #EDF6F0; border-radius: 10px; padding: 10px 12px;
+}
+
+.hos-again { display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
+
+.hos-cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+/* Живая камера */
+.hos-camera {
+  position: fixed; inset: 0; z-index: 50; background: #0c1418;
+  display: flex; align-items: center; justify-content: center;
+}
+.hos-camera video {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hos-camera-frame {
+  position: absolute; inset: 24px; border: 2px dashed rgba(255,255,255,.45);
+  border-radius: 24px; pointer-events: none;
+}
+.hos-camera-bar {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px calc(20px + env(safe-area-inset-bottom));
+  background: linear-gradient(transparent, rgba(12,20,24,.75));
+}
+.hos-camera-cancel, .hos-camera-spacer { width: 84px; }
+.hos-camera-cancel {
+  background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.4);
+  color: #fff; border-radius: 12px; padding: 10px 0; font-size: 14px; font-weight: 500;
+}
+.hos-shutter {
+  width: 72px; height: 72px; border-radius: 50%;
+  background: #fff; border: 5px solid rgba(255,255,255,.45);
+  background-clip: padding-box; box-shadow: 0 4px 16px rgba(0,0,0,.35);
+}
+.hos-shutter:active { transform: scale(.93); }
+
+.hos-footer {
+  text-align: center; font-size: 12px; color: var(--ink-soft);
+  padding: 18px; opacity: .8;
+}
+
+@media (max-width: 480px) {
+  .hos-recipe-meta { display: none; }
+  .hos-main { padding: 8px 16px 40px; }
+}
